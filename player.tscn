@@ -27,3 +27,8 @@ mesh = SubResource("BoxMesh_ccy08")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0)
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 4

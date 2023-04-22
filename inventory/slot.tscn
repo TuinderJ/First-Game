@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://inventory/slot.gd" id="1_rrslj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bgfw"]
-bg_color = Color(0, 1, 1, 1)
+bg_color = Color(0.796078, 0.266667, 0.729412, 1)
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(64, 64)

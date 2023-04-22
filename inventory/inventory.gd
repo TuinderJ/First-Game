@@ -23,3 +23,6 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 	
 		if slot_data:
 			slot.set_slot_data(slot_data)
+
+func update_active_hotbar_slot(inventory_data: InventoryData, desired_active_hotbar_slot: int) -> void:
+	pass

@@ -11,11 +11,11 @@ func set_slot_data(slot_data: SlotData) -> void:
 	texture_rect.texture = item_data.texture
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
 	
-	if slot_data.quantity > 1:
+	if slot_data.quantity > 0:
 		quantity_label.text = "%s" % slot_data.quantity
 		quantity_label.show()
 	
-	if slot_data.hotbar_slot:
+	if slot_data.active_hotbar_slot:
 		panel.show()
 	else:
 		panel.hide()
