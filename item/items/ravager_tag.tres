@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ds3bbw1h8bqe2"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_0pibu"]
+[ext_resource type="Texture2D" uid="uid://b8os7t8fih4kj" path="res://assets/#1 - Transparent Icons.png" id="2_tgk0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvnve"]
+atlas = ExtResource("2_tgk0n")
+region = Rect2(352, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_0pibu")
+name = "Ravager Tag"
+description = "These are name tags renamed (Hermit's name's) Beast. If a hermit renames a beast, they get a Dungeon Key every time that ravager kills a hermit. (They are bought in the shop or in the Black Market)"
+stackable = true
+texture = SubResource("AtlasTexture_hvnve")

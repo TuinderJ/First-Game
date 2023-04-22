@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bja1wcrjle6kr"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_d6fjc"]
+[ext_resource type="Texture2D" uid="uid://b8os7t8fih4kj" path="res://assets/#1 - Transparent Icons.png" id="2_g6gpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8c7i"]
+atlas = ExtResource("2_g6gpc")
+region = Rect2(224, 384, 32, 32)
+
+[resource]
+script = ExtResource("1_d6fjc")
+name = "Decked Out Coin"
+description = "These renamed emeralds are Decked Out's standard currency. They are used in the auction, shop, and sometimes trading. While they aren't usually taken into the dungeon, with the addition of the Black Market they can. (Found in lootboxes, in artifact boxes, or in the Mega Jackpot Prizes in the Black Market)"
+stackable = true
+texture = SubResource("AtlasTexture_n8c7i")

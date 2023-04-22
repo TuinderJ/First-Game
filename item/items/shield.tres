@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bqr3ay3488fgb"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_fkuh1"]
+[ext_resource type="Texture2D" uid="uid://b8os7t8fih4kj" path="res://assets/#1 - Transparent Icons.png" id="2_7bm4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fjbw"]
+atlas = ExtResource("2_7bm4q")
+region = Rect2(32, 192, 32, 32)
+
+[resource]
+script = ExtResource("1_fkuh1")
+name = "Worn Shield"
+description = "These are renamed shields with only a little durability left on them. Hermits can use them to get past ravagers, zombies, or block skeleton arrows. (Bought in the shop)"
+stackable = true
+texture = SubResource("AtlasTexture_7fjbw")

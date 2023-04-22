@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=19 format=3 uid="uid://b7wfbpkrxfn6p"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_a4qni"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_n0h2j"]
+[ext_resource type="Resource" uid="uid://bqr3ay3488fgb" path="res://item/items/shield.tres" id="4_4btap"]
+[ext_resource type="Resource" uid="uid://bvqx28km2j3y5" path="res://item/items/teleportation_orb.tres" id="5_ypv4k"]
+[ext_resource type="Resource" uid="uid://cufivaumnaer0" path="res://item/items/beast_bites.tres" id="6_46kc1"]
+[ext_resource type="Resource" uid="uid://tmamqt12hx3e" path="res://item/items/potion_of_invisibility.tres" id="7_i7jou"]
+[ext_resource type="Resource" uid="uid://ds3bbw1h8bqe2" path="res://item/items/ravager_tag.tres" id="8_44qy5"]
+[ext_resource type="Resource" uid="uid://ck3mmb8xvaqa2" path="res://item/items/challenge_cumpass.tres" id="9_oc0ga"]
+[ext_resource type="Resource" uid="uid://bja1wcrjle6kr" path="res://item/items/decked_out_coin.tres" id="10_h5lmg"]
+[ext_resource type="Resource" uid="uid://c7dshoa2voujl" path="res://item/items/decked_out_key.tres" id="11_dhsi1"]
+
+[sub_resource type="Resource" id="Resource_fum15"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("4_4btap")
+quantity = 30
+
+[sub_resource type="Resource" id="Resource_wbbtu"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("5_ypv4k")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_jss7m"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("6_46kc1")
+quantity = 50
+
+[sub_resource type="Resource" id="Resource_2ymdi"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("7_i7jou")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_hafbe"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("8_44qy5")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_kmeyd"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("9_oc0ga")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_0tkvx"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("11_dhsi1")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_vvktu"]
+script = ExtResource("3_n0h2j")
+item_data = ExtResource("10_h5lmg")
+quantity = 0
+
+[resource]
+script = ExtResource("1_a4qni")
+slot_datas = Array[ExtResource("3_n0h2j")]([SubResource("Resource_fum15"), SubResource("Resource_wbbtu"), SubResource("Resource_jss7m"), SubResource("Resource_2ymdi"), SubResource("Resource_hafbe"), SubResource("Resource_kmeyd"), SubResource("Resource_0tkvx"), SubResource("Resource_vvktu")])

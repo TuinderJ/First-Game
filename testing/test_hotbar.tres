@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=21 format=3 uid="uid://b2lkshk7cwtap"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_o3h4y"]
+[ext_resource type="Resource" uid="uid://msv2aecaf021" path="res://item/items/cumpass.tres" id="2_8vxv2"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_8qngd"]
+[ext_resource type="Resource" uid="uid://bqr3ay3488fgb" path="res://item/items/shield.tres" id="4_moe6q"]
+[ext_resource type="Resource" uid="uid://bvqx28km2j3y5" path="res://item/items/teleportation_orb.tres" id="5_6b0m3"]
+[ext_resource type="Resource" uid="uid://cufivaumnaer0" path="res://item/items/beast_bites.tres" id="6_si003"]
+[ext_resource type="Resource" uid="uid://tmamqt12hx3e" path="res://item/items/potion_of_invisibility.tres" id="7_hudut"]
+[ext_resource type="Resource" uid="uid://ds3bbw1h8bqe2" path="res://item/items/ravager_tag.tres" id="8_spqug"]
+[ext_resource type="Resource" uid="uid://ck3mmb8xvaqa2" path="res://item/items/challenge_cumpass.tres" id="9_1lpbe"]
+[ext_resource type="Resource" uid="uid://c7dshoa2voujl" path="res://item/items/decked_out_key.tres" id="10_d1lvc"]
+[ext_resource type="Resource" uid="uid://bja1wcrjle6kr" path="res://item/items/decked_out_coin.tres" id="11_c4rq4"]
+
+[sub_resource type="Resource" id="Resource_a5u52"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("2_8vxv2")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_xia8q"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("4_moe6q")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_4dt2c"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("5_6b0m3")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_30gsl"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("6_si003")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_gxdt4"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("7_hudut")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_xdagm"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("8_spqug")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_dgtup"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("9_1lpbe")
+quantity = 0
+
+[sub_resource type="Resource" id="Resource_f51y4"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("10_d1lvc")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_dx700"]
+script = ExtResource("3_8qngd")
+item_data = ExtResource("11_c4rq4")
+quantity = 15
+
+[resource]
+script = ExtResource("1_o3h4y")
+slot_datas = Array[ExtResource("3_8qngd")]([SubResource("Resource_a5u52"), SubResource("Resource_xia8q"), SubResource("Resource_4dt2c"), SubResource("Resource_30gsl"), SubResource("Resource_gxdt4"), SubResource("Resource_xdagm"), SubResource("Resource_dgtup"), SubResource("Resource_f51y4"), SubResource("Resource_dx700")])

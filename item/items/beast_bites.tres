@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cufivaumnaer0"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_y7f3a"]
+[ext_resource type="Texture2D" uid="uid://b8os7t8fih4kj" path="res://assets/#1 - Transparent Icons.png" id="2_uvrml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgu20"]
+atlas = ExtResource("2_uvrml")
+region = Rect2(224, 480, 32, 32)
+
+[resource]
+script = ExtResource("1_y7f3a")
+name = "Beast Bites"
+description = "These are renamed cookies, and they allow hermits to replenish health and hunger while in the dungeon. (Found in lootboxes)"
+stackable = true
+texture = SubResource("AtlasTexture_fgu20")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c7dshoa2voujl"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_8eglg"]
+[ext_resource type="Texture2D" uid="uid://b8os7t8fih4kj" path="res://assets/#1 - Transparent Icons.png" id="2_x0eqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gw4o"]
+atlas = ExtResource("2_x0eqk")
+region = Rect2(288, 352, 32, 32)
+
+[resource]
+script = ExtResource("1_8eglg")
+name = "Decked Out Key"
+description = "A key that's needed to enter the dungeon. (Found in Lootboxes, in Artifact Boxes, or Bought in the Black Market)"
+stackable = true
+texture = SubResource("AtlasTexture_7gw4o")
