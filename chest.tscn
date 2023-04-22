@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://do8gt25l23pqe"]
+[gd_scene load_steps=5 format=3 uid="uid://bli3nnru51cm"]
+
+[ext_resource type="Script" path="res://interactable/chest.gd" id="1_pymot"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07pkb"]
 albedo_color = Color(0, 0.835294, 0.309804, 1)
@@ -9,8 +11,11 @@ material = SubResource("StandardMaterial3D_07pkb")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ojk10"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="Chest" type="StaticBody3D"]
+[node name="Chest" type="StaticBody3D" groups=["external_inventory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("1_pymot")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 5

@@ -5,10 +5,7 @@ extends CharacterBody3D
 
 @onready var player := $Pivot
 @onready var camera := $Pivot/Camera3D
-@onready var health_bar := $"../UI/Hud/HealthBar"
-
-var hotbar_texture := preload("res://assets/hotbar.png")
-var active_hotbar_texture := preload("res://assets/active_hotbar.png")
+@onready var interact_ray = $Pivot/Camera3D/InteractRay
 
 # Movement
 const JUMP_VELOCITY:float = 9.33
@@ -17,19 +14,20 @@ var target_velocity := Vector3.ZERO
 var speed: float = 4.317
 var speed_modifier: float = 1
 var movement_enabled: bool = true
+var time_last_pressed_forward: int = true
 var sprinting: bool = false
 var sneaking: bool = false
 
 var mouse_sensitivity: float = .75
 var desired_fov: float = 75
 var current_fov: float
+var max_health: int = 20
 var health: int = 20
 var coins: int = 0
 
 signal toggle_inventory()
 signal toggle_hud()
 signal update_health()
-signal set_active_hotbar_slot()
 signal toggle_debug()
 signal update_debug()
 
@@ -44,9 +42,15 @@ func _unhandled_input(event) -> void:
 			camera.rotate_x(-event.relative.y * 0.01 * mouse_sensitivity)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
+	# Sprint on double tap
+	if Input.is_action_just_pressed("move_forward"):
+		var time_pressed = Time.get_ticks_msec()
+		if time_pressed - time_last_pressed_forward <= 250: sprinting = true
+		time_last_pressed_forward = time_pressed
+	
 	# Inventory Toggle
 	if Input.is_action_just_pressed("inventory"):
-		toggle_inventory.emit()
+		interact()
 	
 	# Debug Toggle
 	if Input.is_action_just_pressed("debug_screen"):
@@ -60,13 +64,13 @@ func _physics_process(delta) -> void:
 	
 	# Testing
 	if Input.is_action_just_pressed("test_q"):
-		toggle_hud.emit()
+		heal(1)
 	
 	# Sprinting
 	if Input.is_action_pressed("sprint") and input_direction.y < 0 and movement_enabled: sprinting = true
 	
 	# Sneaking
-	if Input.is_action_pressed("sneak"):
+	if Input.is_action_pressed("sneak") and movement_enabled:
 		sneaking = true
 		sprinting = false
 	else:
@@ -108,23 +112,21 @@ func _physics_process(delta) -> void:
 	move_and_slide()
 
 func receive_damage(damage) -> void:
-	health -= damage
-	if health <= 0:
+	if health - damage < 0:
 		health = 0
-		# gameover
-	health_changed(health)
+	else:
+		health -= damage
+	update_health.emit(health)
 
-func health_changed(health_value) -> void:
-	health_bar.value = health_value
+func heal(value) -> void:
+	if health + value > max_health:
+		health = max_health
+	else:
+		health += value
+	update_health.emit(health)
 
-func gain_coins(coins_gained) -> void:
-	if coins + coins_gained > 999: coins = 999
-	coins += coins_gained
-
-func spend_coins(coins_lost) -> bool:
-	if coins - coins_lost < 0: return false
-	coins -= coins_lost
-	return true
+func spend_coins(coins_lost) -> void:
+	pass
 
 func disable_movement() -> void:
 	movement_enabled = false
@@ -133,3 +135,9 @@ func disable_movement() -> void:
 func enable_movement() -> void:
 	movement_enabled = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func interact() -> void:
+	if interact_ray.is_colliding():
+		interact_ray.get_collider().player_interact()
+	else:
+		toggle_inventory.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b374ingjn0gnv"]
+[gd_scene load_steps=20 format=3 uid="uid://7f08c02mmsm6"]
 
 [ext_resource type="PackedScene" uid="uid://nkqmue0m5fed" path="res://player.tscn" id="1_53dlw"]
 [ext_resource type="Script" path="res://main.gd" id="1_ick6y"]
@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://b2lkshk7cwtap" path="res://testing/test_hotbar.tres" id="3_3em47"]
 [ext_resource type="Texture2D" uid="uid://dvxo1gwpmym0v" path="res://assets/crosshair.png" id="3_vc7l2"]
 [ext_resource type="Script" path="res://hud.gd" id="5_u5num"]
-[ext_resource type="PackedScene" uid="uid://do8gt25l23pqe" path="res://chest.tscn" id="13_rljrd"]
+[ext_resource type="PackedScene" uid="uid://bli3nnru51cm" path="res://chest.tscn" id="13_rljrd"]
 [ext_resource type="PackedScene" uid="uid://bln1jk0xn8w8d" path="res://inventory/inventory.tscn" id="14_gcf8w"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="17_v2rsa"]
 
@@ -87,9 +87,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -7)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6xsls")
-
-[node name="Chest" parent="." instance=ExtResource("13_rljrd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -2)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -251,3 +248,6 @@ theme_override_constants/margin_top = 8
 [node name="Coordinate Z" type="Label" parent="UI/DebugScreen/GridContainer/MarginContainer3"]
 layout_mode = 2
 text = "Coordinates (X,Y,Z): "
+
+[node name="Chest" parent="." instance=ExtResource("13_rljrd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)

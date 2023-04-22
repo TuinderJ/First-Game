@@ -6,8 +6,9 @@ const Slot = preload("res://inventory/slot.tscn")
 
 func set_inventory_data(inventory_data: InventoryData, hotbar: bool = false) -> void:
 	if hotbar:
-		for slot in inventory_data.slot_datas:
-			slot.hotbar_slot = true
+		for i in range(inventory_data.slot_datas.size()):
+			inventory_data.slot_datas[i].hotbar_slot = true
+		inventory_data.slot_datas[0].active_hotbar_slot = true
 	inventory_data.inventory_updated.connect(populate_item_grid)
 	populate_item_grid(inventory_data)
 
@@ -25,4 +26,15 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 			slot.set_slot_data(slot_data)
 
 func update_active_hotbar_slot(inventory_data: InventoryData, desired_active_hotbar_slot: int) -> void:
-	pass
+	for i in range(inventory_data.slot_datas.size()):
+		if i == desired_active_hotbar_slot:
+			inventory_data.slot_datas[i].active_hotbar_slot = true
+		else:
+			inventory_data.slot_datas[i].active_hotbar_slot = false
+	populate_item_grid(inventory_data)
+
+func get_active_hotbar_slot(inventory_data: InventoryData) -> int:
+	for i in range(inventory_data.slot_datas.size()):
+		if inventory_data.slot_datas[i].active_hotbar_slot:
+			return i
+	return -1
