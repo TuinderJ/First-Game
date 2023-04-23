@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7f08c02mmsm6"]
+[gd_scene load_steps=28 format=3 uid="uid://7f08c02mmsm6"]
 
 [ext_resource type="PackedScene" uid="uid://nkqmue0m5fed" path="res://player.tscn" id="1_53dlw"]
 [ext_resource type="Script" path="res://main.gd" id="1_ick6y"]
@@ -7,8 +7,13 @@
 [ext_resource type="Resource" uid="uid://b2lkshk7cwtap" path="res://testing/test_hotbar.tres" id="3_3em47"]
 [ext_resource type="Texture2D" uid="uid://dvxo1gwpmym0v" path="res://assets/crosshair.png" id="3_vc7l2"]
 [ext_resource type="Script" path="res://hud.gd" id="5_u5num"]
+[ext_resource type="Resource" uid="uid://dxf5ul6vimscm" path="res://testing/chest_test.tres" id="11_kn1pe"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="11_l118q"]
 [ext_resource type="PackedScene" uid="uid://bli3nnru51cm" path="res://chest.tscn" id="13_rljrd"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="13_y0yn8"]
 [ext_resource type="PackedScene" uid="uid://bln1jk0xn8w8d" path="res://inventory/inventory.tscn" id="14_gcf8w"]
+[ext_resource type="Resource" uid="uid://bja1wcrjle6kr" path="res://item/items/decked_out_coin.tres" id="14_qh0ap"]
+[ext_resource type="Resource" uid="uid://c7dshoa2voujl" path="res://item/items/decked_out_key.tres" id="15_pry0y"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="17_v2rsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqhey"]
@@ -46,6 +51,20 @@ script/source = "extends Control
 func _ready():
 	pass # Replace with function body.
 "
+
+[sub_resource type="Resource" id="Resource_qsa5j"]
+script = ExtResource("13_y0yn8")
+item_data = ExtResource("14_qh0ap")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_4ujag"]
+script = ExtResource("13_y0yn8")
+item_data = ExtResource("15_pry0y")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_tx7jy"]
+script = ExtResource("11_l118q")
+slot_datas = Array[ExtResource("13_y0yn8")]([SubResource("Resource_qsa5j"), SubResource("Resource_4ujag")])
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_ick6y")
@@ -251,3 +270,8 @@ text = "Coordinates (X,Y,Z): "
 
 [node name="Chest" parent="." instance=ExtResource("13_rljrd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+inventory_data = ExtResource("11_kn1pe")
+
+[node name="Chest2" parent="." instance=ExtResource("13_rljrd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -2)
+inventory_data = SubResource("Resource_tx7jy")

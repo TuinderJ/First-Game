@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bli3nnru51cm"]
+[gd_scene load_steps=7 format=3 uid="uid://bli3nnru51cm"]
 
 [ext_resource type="Script" path="res://interactable/chest.gd" id="1_pymot"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="2_euteo"]
+
+[sub_resource type="Resource" id="Resource_flt8a"]
+script = ExtResource("2_euteo")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07pkb"]
 albedo_color = Color(0, 0.835294, 0.309804, 1)
@@ -16,6 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 5
 collision_mask = 0
 script = ExtResource("1_pymot")
+inventory_data = SubResource("Resource_flt8a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 5

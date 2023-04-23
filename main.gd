@@ -36,9 +36,11 @@ func toggle_inventory_interface(external_inventory_owner = null) -> void:
 	if external_inventory_owner:
 		player_inventory.hide()
 		external_inventory.show()
+		inventory_interface.set_external_inventory_data(external_inventory_owner)
 	else:
 		player_inventory.show()
 		external_inventory.hide()
+		inventory_interface.clear_external_inventory_data()
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		player.movement_enabled = false
@@ -46,8 +48,6 @@ func toggle_inventory_interface(external_inventory_owner = null) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		player.movement_enabled = true
 	
-	if external_inventory_owner:
-		inventory_interface.set_external_inventory_data(external_inventory_owner)
 
 func on_update_health(value: int) -> void:
 	hud.update_health(value)
